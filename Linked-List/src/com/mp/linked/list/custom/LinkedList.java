@@ -15,6 +15,7 @@ public class LinkedList {
 
     Node first; // head
     Node last; // tail
+    private int count;
 
     public void addLast(int item){
         var node = new Node(item);
@@ -24,6 +25,7 @@ public class LinkedList {
             last.next = node;
             last = node;
         }
+        count++;
     }
 
     public void addFirst(int item){
@@ -34,6 +36,7 @@ public class LinkedList {
             node.next = first;
             first = node;
         }
+        count++;
     }
 
     public int indexOf(int item) {
@@ -60,14 +63,47 @@ public class LinkedList {
         // If the list has only one node
         if(first == last){
             first = last = null;
-            return;
+        } else{
+            var second = first.next;
+            first = second;
         }
+        count--;
 
-        var second = first.next;
-        first = second;
     }
 
     private boolean isEmpty(){
         return first == null;
+    }
+
+    public void removeLast(){
+        // Find the previous node to the last node and break the chain
+        if(isEmpty())
+            throw new NoSuchElementException();
+
+        if(first == last){
+            first = last = null;
+        } else {
+            var previousToLastNode = getPrevious(last);
+            if(previousToLastNode == null)
+                throw new NoSuchElementException();
+
+            previousToLastNode.next = null;
+            last = previousToLastNode;
+        }
+        count--;
+    }
+
+    public int size(){
+        return this.count;
+    }
+
+    private Node getPrevious(Node node){
+        var current = first;
+        while(current != null){
+            if(current.next == node)
+                return current;
+            current = current.next;
+        }
+        return null;
     }
 }

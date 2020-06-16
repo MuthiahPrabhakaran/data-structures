@@ -14,7 +14,9 @@ public class CustomLinkedListExample {
 //        System.out.println(list.contains(10));
 //        System.out.println(list.contains(100));
 
-        list.removeFirst();
-        System.out.println(list.contains(5));
+        //list.removeFirst();
+        //System.out.println(list.contains(5));
+
+
     }
 }
