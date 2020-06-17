@@ -1,5 +1,7 @@
 package com.mp.linked.list.custom;
 
+import java.util.Arrays;
+
 public class CustomLinkedListExample {
     public static void main(String[] args) {
         var list = new LinkedList();
@@ -16,6 +18,8 @@ public class CustomLinkedListExample {
 
         //list.removeFirst();
         //System.out.println(list.contains(5));
+
+        System.out.println(Arrays.toString(list.toArray()));
 
 
     }

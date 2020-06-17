@@ -15,7 +15,7 @@ public class LinkedList {
 
     Node first; // head
     Node last; // tail
-    private int count;
+    private int size;
 
     public void addLast(int item){
         var node = new Node(item);
@@ -25,7 +25,7 @@ public class LinkedList {
             last.next = node;
             last = node;
         }
-        count++;
+        size++;
     }
 
     public void addFirst(int item){
@@ -36,7 +36,7 @@ public class LinkedList {
             node.next = first;
             first = node;
         }
-        count++;
+        size++;
     }
 
     public int indexOf(int item) {
@@ -67,7 +67,7 @@ public class LinkedList {
             var second = first.next;
             first = second;
         }
-        count--;
+        size--;
 
     }
 
@@ -90,11 +90,11 @@ public class LinkedList {
             previousToLastNode.next = null;
             last = previousToLastNode;
         }
-        count--;
+        size--;
     }
 
     public int size(){
-        return this.count;
+        return this.size;
     }
 
     private Node getPrevious(Node node){
@@ -105,5 +105,17 @@ public class LinkedList {
             current = current.next;
         }
         return null;
+    }
+
+    public int[] toArray(){
+        int[] items = new int[size];
+        var current = first;
+        int index = 0;
+        while(current != null){
+            items[index++] = current.value;
+            //index++
+            current = current.next;
+        }
+        return items;
     }
 }
