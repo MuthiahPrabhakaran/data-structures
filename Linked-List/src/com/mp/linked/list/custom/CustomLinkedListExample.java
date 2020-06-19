@@ -18,8 +18,9 @@ public class CustomLinkedListExample {
 
         //list.removeFirst();
         //System.out.println(list.contains(5));
-
-        System.out.println(Arrays.toString(list.toArray()));
+        //list.reverse();
+        //System.out.println(Arrays.toString(list.toArray()));
+        System.out.println(list.findKthFromTheEnd(1));
 
 
     }

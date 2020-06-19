@@ -118,4 +118,53 @@ public class LinkedList {
         }
         return items;
     }
+
+    public void reverse(){
+        if(isEmpty())
+            return;
+
+        var previous = first;
+        var current = first.next;
+        while(current != null){
+            var next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+
+        last = first;
+        last.next = null;
+        first = previous;
+    }
+
+    public int findKthFromTheEnd(int k){
+
+        if(isEmpty())
+            throw new IllegalStateException();
+
+        // if we know the size
+        /*if(k > size)
+            throw new IllegalArgumentException();*/
+
+        // 10-20-30-40-50-60
+        var a = first;
+        var b = first;
+
+        // To find the 2nd pointer(50) from the end, the distance between two pointers should be one
+        // To find the 3rd pointer(40) from the end, the distance between two pointers should be two, mean k-1
+        for(int i = 0; i < k-1; i++) {
+            b = b.next;
+            //if k is more than the size of the list
+            if(b == null)
+                throw new IllegalArgumentException();
+        }
+
+        // Now the distance between the pointer is k-1, lets move it. Once the b hits last, we can fetch the value of a
+        while(b != last){
+            a = a.next;
+            b = b.next;
+        }
+
+        return a.value;
+    }
 }
