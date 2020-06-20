@@ -9,6 +9,7 @@ public class CustomLinkedListExample {
         list.addLast(20);
         list.addLast(30);
         list.addFirst(5);
+        //list.addLast(40);
 
 //        System.out.println(list.indexOf(10));
 //        System.out.println(list.indexOf(200));
@@ -20,7 +21,8 @@ public class CustomLinkedListExample {
         //System.out.println(list.contains(5));
         //list.reverse();
         //System.out.println(Arrays.toString(list.toArray()));
-        System.out.println(list.findKthFromTheEnd(1));
+        //System.out.println(list.findKthFromTheEnd(1));
+        list.findMiddleValue();
 
 
     }

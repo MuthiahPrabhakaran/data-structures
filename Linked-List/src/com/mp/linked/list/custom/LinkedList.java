@@ -167,4 +167,18 @@ public class LinkedList {
 
         return a.value;
     }
+
+    public void findMiddleValue(){
+        var a = first;
+        var b = first;
+        while(b != last && b.next != last){
+            b = b.next.next;
+            a = a.next;
+        }
+
+        if(b == last)
+            System.out.println(a.value);
+        else
+            System.out.println(a.value +","+ a.next.value);
+    }
 }
