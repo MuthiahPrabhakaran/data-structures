@@ -181,4 +181,38 @@ public class LinkedList {
         else
             System.out.println(a.value +","+ a.next.value);
     }
+
+    public boolean hasLoop(){
+        var a = first;
+        var b = first.next.next;
+        boolean isCyclic = false;
+        while(a!=null && b!=null){
+            if(a == b){
+                isCyclic = true;
+                break;
+            }
+            a = a.next;
+            b = b.next.next;
+        }
+        return isCyclic;
+    }
+
+    public void createListWithLoop(){
+        Node node = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+
+        node.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+        node6.next = node4;
+
+        first = node;
+        last = node6;
+    }
 }

@@ -22,8 +22,9 @@ public class CustomLinkedListExample {
         //list.reverse();
         //System.out.println(Arrays.toString(list.toArray()));
         //System.out.println(list.findKthFromTheEnd(1));
-        list.findMiddleValue();
-
+        //list.findMiddleValue();
+        //list.createListWithLoop();
+        System.out.println(list.hasLoop());
 
     }
 }
