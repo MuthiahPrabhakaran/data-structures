@@ -1,11 +1,14 @@
 package com.array.example;
 
-public class CustomArray {
+
+import java.util.Iterator;
+
+public class IntegerList implements Iterable<Integer>{
 
     private int[] items;
     private int count = 0;
 
-    public CustomArray(int size){
+    public IntegerList(int size){
         items = new int[size];
     }
 
@@ -14,6 +17,7 @@ public class CustomArray {
         // Resize the array if it is full
         if(items.length == count){
             //Create a new array(maybe twice the size)
+            //int[] newItems = Arrays.copyOf(items, count*2);
             int[] newItems = new int[count * 2];
 
             //Copy the existing array into new one
@@ -74,9 +78,36 @@ public class CustomArray {
         return max;
     }
 
-    public void print(){
+    /*public void print(){
         for(int i=0;i<count;i++) {
             System.out.println(items[i]);
         }
+    }*/
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new ListIterator(this);
+    }
+
+    private class ListIterator implements Iterator<Integer> {
+
+        private IntegerList list;
+        private int index;
+
+        public ListIterator(IntegerList list){
+            this.list = list;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index < list.count;
+        }
+
+        @Override
+        public Integer next() {
+            return list.items[index++];
+        }
     }
 }
+
+
